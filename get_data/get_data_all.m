@@ -10,7 +10,7 @@ datalent=procesar_legumbres(carpeta_entrada_img, 'lentejas');
 
 % dibujamos las imagenes finales
 dibujar_filtro_legumbres(datalent, carpeta_entrada_img, 'lentejas');
-writetable(datalent,'data_lentejas')
+writetable(datalent,'data_lentejas.csv')
 % 
 % % Guardar a .mat
 % save('datalent.mat', 'datalent');
