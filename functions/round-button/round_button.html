@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      width: 100%;
+      height: 100%;
+      border-radius: 2em;
+      font-size: 1em;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    button:focus {
+      outline: 0;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function setup(htmlComponent) {
+      const buttonElement = document.getElementById("roundButton");
+      let defaultColor = "#ffffff";
+      let hoverColor = "#cccccc";
+
+      htmlComponent.addEventListener("DataChanged", function(event) {
+        const data = htmlComponent.Data;
+
+        // Actualiza propiedades básicas
+        document.body.style.backgroundColor = data.BackgroundColor;
+        buttonElement.style.backgroundColor = data.Color;
+        buttonElement.style.color = data.FontColor;
+        buttonElement.innerHTML = data.Text;
+        buttonElement.style.fontWeight = data.Bold ? "bold" : "normal";
+
+        // Guarda los colores para el efecto hover
+        defaultColor = data.Color;
+        hoverColor = data.HoverColor || data.Color;  // Si no hay HoverColor, usa el color normal
+      });
+
+      // Hover: cambia color de fondo
+      buttonElement.addEventListener("mouseenter", function() {
+        buttonElement.style.backgroundColor = hoverColor;
+      });
+
+      buttonElement.addEventListener("mouseleave", function() {
+        buttonElement.style.backgroundColor = defaultColor;
+      });
+
+      // Evento de clic
+      buttonElement.addEventListener("click", function(event) {
+        htmlComponent.sendEventToMATLAB("ButtonClicked");
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <button id="roundButton"></button>
+</body>
+</html>
