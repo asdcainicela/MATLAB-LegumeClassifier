@@ -1,4 +1,8 @@
-function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = procesamiento_img(file_input, area_min, area_max, clase)
+function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = procesamiento_img(file_input, area_min, area_max, clase, circ_min)
+
+    if ~exist('circ_min', 'var')
+        circ_min = 0.0;  % Valor por defecto desactivado
+    end
 
     % Leer imagen
     if ischar(file_input) || isstring(file_input)
@@ -17,7 +21,12 @@ function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = proce
     % Filtrado por área
     etiquetas = bwlabel(x_bin, 8);
     stats = regionprops(etiquetas, 'Area');
-    indices_validos = find([stats.Area] > area_min & [stats.Area] < area_max);
+    todas_areas = [stats.Area];
+
+    fprintf('\n[INFO] Áreas detectadas: %s\n', num2str(todas_areas));
+    indices_validos = find(todas_areas > area_min & todas_areas < area_max);
+    fprintf('[INFO] Regiones válidas por área: %d de %d\n', numel(indices_validos), numel(todas_areas));
+
     mascara_area = ismember(etiquetas, indices_validos);
     etiquetas_area = bwlabel(mascara_area, 8);
 
@@ -32,7 +41,6 @@ function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = proce
 
     tieneClase = exist('clase', 'var');
 
-    % Inicialización dinámica
     temp = repmat(struct( ...
         'Area', [], 'Perimeter', [], 'Eccentricity', [], 'Orientation', [], ...
         'MajorAxisLength', [], 'MinorAxisLength', [], 'CentroidX', [], 'CentroidY', [], ...
@@ -41,15 +49,20 @@ function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = proce
         ), N, 1);
 
     if tieneClase
-        [temp.Clase] = deal(clase);  % Solo si se pasa clase
+        [temp.Clase] = deal(clase);
     end
 
+    fprintf('[INFO] === Análisis de regiones ===\n');
     for i = 1:N
         s = stats_filtradas(i);
         obj_mask = etiquetas_area == i;
         circ = 4 * pi * s.Area / (s.Perimeter^2 + eps);
 
-        if circ < 0.05
+        fprintf('  → Objeto %d: Area=%.1f | Perim=%.1f | Circ=%.3f\n', ...
+                i, s.Area, s.Perimeter, circ);
+
+        if circ < circ_min
+            fprintf('    ⚠️  Se descarta por circularidad < %.2f\n', circ_min);
             continue;
         end
 
@@ -72,15 +85,16 @@ function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = proce
         temp(idx).MeanG = mean(g_vals);  temp(idx).StdG = std(g_vals);
         temp(idx).MeanB = mean(b_vals);  temp(idx).StdB = std(b_vals);
     end
+    fprintf('[INFO] Total objetos aceptados: %d\n', idx);
 
     if idx > 0
         datos = struct2table(temp(1:idx));
+        etiquetas_validas = [temp(1:idx).Etiqueta];
+        mascara_final = ismember(etiquetas_area, etiquetas_validas);
     else
         datos = table();
+        mascara_final = false(size(x_bin));
     end
 
-    % Salida extra
-    etiquetas_validas = [temp(1:idx).Etiqueta];
-    mascara_final = ismember(etiquetas_area, etiquetas_validas);
     etiquetas_filtradas = bwlabel(mascara_final, 8);
 end
