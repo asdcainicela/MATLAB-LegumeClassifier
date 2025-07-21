@@ -1,7 +1,10 @@
 function [img_etiquetada, resumen_clases, tabla_final] = analizar_legumbres(tabla_final, img_data, name)
     % ANALIZAR_LEGUMBRES: Etiqueta objetos con bounding boxes por clase,
     % devuelve imagen, tabla resumen por clase y tabla con IDs.
-
+    if nargin < 3
+        name = '';  % Valor por defecto si no se pasa el argumento
+    end
+    
     % Verificar columna de clase
     if ~ismember('Clase', tabla_final.Properties.VariableNames)
         error('La tabla no contiene la columna "Clase".');
