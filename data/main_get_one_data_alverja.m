@@ -2,10 +2,10 @@ clc, clear, close all;
 addpath("../functions/procesamiento")
 addpath("../functions/utils")
 % Ruta de imagen de prueba
-ruta = 'data_alverita_verde_partida/IMG_5678.jpeg';
+ruta = 'data_alverjita_verde_partida/img3.jpeg';
 
 % Procesar imagen
-[datos, x, xg, xb, masc, etiquetas] = procesamiento_img(ruta, 100, 8000, 'lenteja');
+[datos, x, xg, xb, masc, etiquetas] = procesamiento_img(ruta, 0.22,0.6, 'alverja');
 
 
 % Mostrar tabla de propiedades
@@ -30,4 +30,4 @@ for i = 1:height(datos)
     plot(cx, cy, 'r*');
     text(cx+10, cy, texto, 'Color', 'black', 'FontSize', 8);
 end
-save_datacsv(datos, 'data_alverjita.csv');  % Guarda en la carpeta "resultados"
+%save_datacsv(datos, 'data_alverjita.csv');  % Guarda en la carpeta "resultados"

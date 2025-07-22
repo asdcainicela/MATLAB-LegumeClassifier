@@ -2,10 +2,10 @@ clc, clear, close all;
 addpath("../functions/procesamiento")
 addpath("../functions/utils")
 % Ruta de imagen de prueba
-ruta = 'data_frejol_canario/img7.jpg';
+ruta = 'data_frejol_rojo/img5.jpeg';
 
 % Procesar imagen
-[datos, x, xg, xb, masc, etiquetas] = procesamiento_img(ruta, 00.3, 1.5, 'frejol_canario',0,0.64);
+[datos, x, xg, xb, masc, etiquetas] = procesamiento_img(ruta, 00.6, 2.5, 'frejol_rojo');
 
 % img1.jpg procesamiento_img(ruta, 8000, 45000, 'frejol_canario',0,0.65);
 % umbral es el 0.65,etc

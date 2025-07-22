@@ -5,7 +5,7 @@ addpath("../functions/utils")
 ruta = 'data_garbanzo/G_5.png';
 
 % Procesar imagen
-[datos, x, xg, xb, masc, etiquetas] = procesamiento_img(ruta, 500, 40000, 'garbanzo', 0.05 );
+[datos, x, xg, xb, masc, etiquetas] = procesamiento_img(ruta, 0.1, 2, 'garbanzo', 0.05 );
 
 % Mostrar tabla de propiedades
 disp(datos);
