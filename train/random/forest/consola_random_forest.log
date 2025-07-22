@@ -1,0 +1,23 @@
+{Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('load')" style="font-weight:bold">load</a>
+Unable to find file or directory 'datos_entrenamiento.mat'.
+
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('train_random_forest', 'D:\git\MATLAB-LegumeClassifier\train\train_random_forest.m', 15)" style="font-weight:bold">train_random_forest</a> (<a href="matlab: opentoline('D:\git\MATLAB-LegumeClassifier\train\train_random_forest.m',15,0)">line 15</a>)
+load('datos_entrenamiento.mat'); % Asegúrate que X_train, Y_train, X_test, Y_test estén definidos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+} 
+clc
+r
+{Unrecognized function or variable 'r'.
+} 
+train_random_forest
+[INFO] Número de muestras: 681
+[INFO] Número de clases: 4
+
+[INFO] Precisión en test: 99.51%
+[Warning: Exported image displays axes toolbar. To remove axes toolbar from image, export again.] 
+[INFO] Script finalizado correctamente.
+[INFO] Número de muestras: 681
+[INFO] Número de clases: 4
+
+[INFO] Precisión en test: 98.53%
+[INFO] Script finalizado correctamente.

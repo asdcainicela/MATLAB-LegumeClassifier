@@ -1,0 +1,288 @@
+[INFO] Inicio del proceso: 22-Jul-2025 11:05:08
+[INFO] Número de muestras: 681
+[INFO] Número de clases: 4
+
+|======================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   |  MinLeafSize |
+|      | result |             | runtime     | (observed)  | (estim.)    |              |
+|======================================================================================|
+|    1 | Best   |     0.46751 |      1.2361 |     0.46751 |     0.46751 |          183 |
+|    2 | Best   |    0.027254 |     0.07987 |    0.027254 |    0.054464 |            5 |
+|    3 | Best   |    0.025157 |    0.040291 |    0.025157 |    0.025169 |            1 |
+|    4 | Accept |    0.027254 |     0.04355 |    0.025157 |    0.025174 |           28 |
+|    5 | Accept |    0.027254 |    0.046624 |    0.025157 |    0.025167 |           13 |
+|    6 | Accept |     0.02935 |    0.047234 |    0.025157 |    0.025182 |            2 |
+|    7 | Accept |    0.027254 |    0.055787 |    0.025157 |    0.025221 |           20 |
+|    8 | Accept |    0.027254 |    0.043471 |    0.025157 |    0.025176 |            8 |
+|    9 | Accept |    0.033543 |    0.039703 |    0.025157 |    0.025139 |            3 |
+|   10 | Accept |    0.025157 |    0.052221 |    0.025157 |    0.025149 |            1 |
+|   11 | Accept |    0.025157 |    0.091156 |    0.025157 |    0.025152 |            1 |
+|   12 | Accept |    0.025157 |    0.037412 |    0.025157 |    0.025154 |            1 |
+|   13 | Accept |    0.027254 |    0.043861 |    0.025157 |    0.025157 |           67 |
+|   14 | Accept |    0.027254 |    0.038537 |    0.025157 |    0.025158 |           49 |
+|   15 | Accept |    0.027254 |     0.03998 |    0.025157 |    0.025158 |           59 |
+|   16 | Accept |     0.02935 |    0.052777 |    0.025157 |    0.025157 |            6 |
+|   17 | Accept |    0.027254 |    0.040548 |    0.025157 |    0.025157 |           10 |
+|   18 | Accept |    0.027254 |    0.041789 |    0.025157 |    0.025157 |           36 |
+|   19 | Accept |     0.37736 |    0.042916 |    0.025157 |    0.025158 |          109 |
+|   20 | Accept |    0.027254 |    0.045797 |    0.025157 |    0.025158 |            4 |
+|======================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   |  MinLeafSize |
+|      | result |             | runtime     | (observed)  | (estim.)    |              |
+|======================================================================================|
+|   21 | Accept |    0.027254 |    0.038796 |    0.025157 |    0.025158 |           16 |
+|   22 | Accept |    0.027254 |       0.044 |    0.025157 |    0.025158 |           42 |
+|   23 | Accept |    0.027254 |    0.044099 |    0.025157 |    0.025158 |           24 |
+|   24 | Accept |    0.027254 |    0.046833 |    0.025157 |    0.025158 |           63 |
+|   25 | Accept |    0.027254 |    0.038041 |    0.025157 |    0.025158 |           11 |
+|   26 | Accept |     0.02935 |    0.044938 |    0.025157 |    0.025158 |            7 |
+|   27 | Accept |    0.027254 |    0.056797 |    0.025157 |    0.025158 |           32 |
+|   28 | Accept |    0.027254 |    0.042365 |    0.025157 |    0.025158 |           18 |
+|   29 | Accept |    0.027254 |     0.04489 |    0.025157 |    0.025158 |            9 |
+|   30 | Accept |      0.6478 |    0.055963 |    0.025157 |    0.025158 |          238 |
+
+__________________________________________________________
+Optimization completed.
+MaxObjectiveEvaluations of 30 reached.
+Total function evaluations: 30
+Total elapsed time: 16.5129 seconds
+Total objective function evaluation time: 2.6164
+
+Best observed feasible point:
+    <strong>MinLeafSize</strong>
+    <strong>___________</strong>
+
+         1     
+
+Observed objective function value = 0.025157
+Estimated objective function value = 0.025158
+Function evaluation time = 0.040291
+
+Best estimated feasible point (according to models):
+    <strong>MinLeafSize</strong>
+    <strong>___________</strong>
+
+         1     
+
+Estimated objective function value = 0.025158
+Estimated function evaluation time = 0.051863
+
+[INFO] Precisión en test: 98.53%
+[Warning: Exported image displays axes toolbar. To remove axes toolbar from image, export again.] 
+[INFO] Árbol de decisión y matriz de confusión guardados en "random/tree"
+[INFO] Fin del proceso: 22-Jul-2025 11:05:32
+[INFO] Inicio del proceso: 22-Jul-2025 11:06:09
+[INFO] Número de muestras: 681
+[INFO] Número de clases: 4
+
+|======================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   |  MinLeafSize |
+|      | result |             | runtime     | (observed)  | (estim.)    |              |
+|======================================================================================|
+|    1 | Best   |      0.6457 |     0.17679 |      0.6457 |      0.6457 |          217 |
+|    2 | Best   |    0.012579 |    0.075956 |    0.012579 |     0.04653 |            3 |
+|    3 | Accept |    0.018868 |     0.04624 |    0.012579 |    0.075201 |           73 |
+|    4 | Accept |    0.018868 |    0.041663 |    0.012579 |     0.13595 |           13 |
+|    5 | Accept |    0.018868 |    0.042757 |    0.012579 |    0.012593 |           15 |
+|    6 | Accept |    0.018868 |    0.042603 |    0.012579 |    0.012592 |           40 |
+|    7 | Best   |   0.0062893 |    0.044814 |   0.0062893 |   0.0062999 |            1 |
+|    8 | Accept |   0.0062893 |    0.043052 |   0.0062893 |   0.0062832 |            2 |
+|    9 | Accept |    0.018868 |    0.037644 |   0.0062893 |   0.0062888 |            6 |
+|   10 | Accept |    0.018868 |    0.039463 |   0.0062893 |   0.0062708 |           57 |
+|   11 | Accept |    0.018868 |    0.038789 |   0.0062893 |    0.006287 |           25 |
+|   12 | Accept |    0.016771 |     0.05306 |   0.0062893 |   0.0062818 |            4 |
+|   13 | Accept |   0.0062893 |    0.047657 |   0.0062893 |   0.0062858 |            2 |
+|   14 | Accept |   0.0062893 |    0.048706 |   0.0062893 |    0.006286 |            1 |
+|   15 | Accept |   0.0062893 |    0.048537 |   0.0062893 |   0.0062873 |            2 |
+|   16 | Accept |   0.0062893 |     0.03971 |   0.0062893 |   0.0062874 |            1 |
+|   17 | Accept |   0.0062893 |    0.048818 |   0.0062893 |   0.0062879 |            2 |
+|   18 | Accept |   0.0062893 |    0.051933 |   0.0062893 |    0.006288 |            1 |
+|   19 | Accept |     0.43187 |    0.044844 |   0.0062893 |   0.0062893 |          123 |
+|   20 | Accept |    0.018868 |     0.04929 |   0.0062893 |   0.0062893 |            9 |
+|======================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   |  MinLeafSize |
+|      | result |             | runtime     | (observed)  | (estim.)    |              |
+|======================================================================================|
+|   21 | Accept |    0.018868 |    0.054514 |   0.0062893 |   0.0062892 |           32 |
+|   22 | Accept |    0.018868 |    0.040369 |   0.0062893 |   0.0062892 |           20 |
+|   23 | Accept |    0.018868 |    0.052272 |   0.0062893 |   0.0062893 |           66 |
+|   24 | Accept |    0.018868 |    0.041869 |   0.0062893 |   0.0062894 |            5 |
+|   25 | Accept |     0.24109 |    0.056473 |   0.0062893 |   0.0062901 |           93 |
+|   26 | Accept |    0.018868 |    0.049033 |   0.0062893 |     0.00629 |           48 |
+|   27 | Accept |    0.018868 |    0.037754 |   0.0062893 |     0.00629 |            7 |
+|   28 | Accept |    0.018868 |    0.041954 |   0.0062893 |   0.0062899 |           11 |
+|   29 | Accept |    0.018868 |    0.044679 |   0.0062893 |   0.0062899 |           17 |
+|   30 | Accept |     0.42977 |    0.048241 |   0.0062893 |   0.0062899 |          166 |
+
+__________________________________________________________
+Optimization completed.
+MaxObjectiveEvaluations of 30 reached.
+Total function evaluations: 30
+Total elapsed time: 13.987 seconds
+Total objective function evaluation time: 1.5295
+
+Best observed feasible point:
+    <strong>MinLeafSize</strong>
+    <strong>___________</strong>
+
+         1     
+
+Observed objective function value = 0.0062893
+Estimated objective function value = 0.0062907
+Function evaluation time = 0.044814
+
+Best estimated feasible point (according to models):
+    <strong>MinLeafSize</strong>
+    <strong>___________</strong>
+
+         2     
+
+Estimated objective function value = 0.0062899
+Estimated function evaluation time = 0.047122
+
+[INFO] Precisión en test: 97.55%
+[Warning: Exported image displays axes toolbar. To remove axes toolbar from image, export again.] 
+[INFO] Árbol de decisión y matriz de confusión guardados en "random/tree"
+[INFO] Fin del proceso: 22-Jul-2025 11:06:32
+[INFO] Inicio del proceso: 22-Jul-2025 11:07:32
+[INFO] Número de muestras: 681
+[INFO] Número de clases: 4
+
+|======================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   |  MinLeafSize |
+|      | result |             | runtime     | (observed)  | (estim.)    |              |
+|======================================================================================|
+|    1 | Best   |    0.016771 |     0.13794 |    0.016771 |    0.016771 |           44 |
+|    2 | Accept |     0.42558 |    0.049383 |    0.016771 |     0.11762 |          151 |
+|    3 | Accept |    0.018868 |    0.038744 |    0.016771 |    0.070066 |            3 |
+|    4 | Accept |    0.016771 |     0.03763 |    0.016771 |    0.062861 |           13 |
+|    5 | Accept |    0.016771 |      0.0361 |    0.016771 |    0.016712 |           48 |
+|    6 | Accept |    0.016771 |    0.035923 |    0.016771 |    0.016652 |            6 |
+|    7 | Best   |    0.012579 |    0.039911 |    0.012579 |    0.011562 |            1 |
+|    8 | Accept |    0.016771 |    0.039064 |    0.012579 |     0.01378 |           27 |
+|    9 | Accept |    0.016771 |    0.045473 |    0.012579 |    0.013851 |            2 |
+|   10 | Accept |    0.016771 |    0.044761 |    0.012579 |    0.012584 |           37 |
+|   11 | Accept |    0.016771 |    0.044804 |    0.012579 |    0.012583 |            9 |
+|   12 | Accept |    0.016771 |    0.043801 |    0.012579 |    0.012582 |           19 |
+|   13 | Accept |    0.012579 |    0.040934 |    0.012579 |     0.01258 |            1 |
+|   14 | Accept |    0.012579 |    0.045355 |    0.012579 |     0.01258 |            1 |
+|   15 | Accept |    0.012579 |    0.041012 |    0.012579 |    0.012579 |            1 |
+|   16 | Accept |    0.016771 |    0.040928 |    0.012579 |    0.012579 |            4 |
+|   17 | Accept |      0.6478 |    0.040039 |    0.012579 |     0.01258 |          238 |
+|   18 | Accept |    0.016771 |    0.039042 |    0.012579 |     0.01258 |           76 |
+|   19 | Accept |    0.016771 |    0.041632 |    0.012579 |     0.01258 |           64 |
+|   20 | Accept |    0.016771 |    0.042001 |    0.012579 |     0.01258 |            5 |
+|======================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   |  MinLeafSize |
+|      | result |             | runtime     | (observed)  | (estim.)    |              |
+|======================================================================================|
+|   21 | Accept |    0.016771 |    0.043215 |    0.012579 |     0.01258 |           16 |
+|   22 | Accept |    0.016771 |    0.041227 |    0.012579 |     0.01258 |            7 |
+|   23 | Accept |     0.25157 |    0.038684 |    0.012579 |   0.0055925 |          101 |
+|   24 | Accept |    0.016771 |    0.038964 |    0.012579 |   0.0067822 |           54 |
+|   25 | Accept |    0.016771 |    0.054087 |    0.012579 |     0.01258 |           54 |
+|   26 | Accept |    0.016771 |     0.03902 |    0.012579 |     0.01258 |           11 |
+|   27 | Accept |    0.016771 |    0.045816 |    0.012579 |     0.01258 |           23 |
+|   28 | Accept |    0.016771 |    0.042546 |    0.012579 |     0.01258 |           71 |
+|   29 | Accept |    0.016771 |    0.036443 |    0.012579 |     0.01258 |           32 |
+|   30 | Accept |    0.016771 |    0.039187 |    0.012579 |     0.01258 |            8 |
+
+__________________________________________________________
+Optimization completed.
+MaxObjectiveEvaluations of 30 reached.
+Total function evaluations: 30
+Total elapsed time: 12.7527 seconds
+Total objective function evaluation time: 1.3437
+
+Best observed feasible point:
+    <strong>MinLeafSize</strong>
+    <strong>___________</strong>
+
+         1     
+
+Observed objective function value = 0.012579
+Estimated objective function value = 0.01258
+Function evaluation time = 0.039911
+
+Best estimated feasible point (according to models):
+    <strong>MinLeafSize</strong>
+    <strong>___________</strong>
+
+         1     
+
+Estimated objective function value = 0.01258
+Estimated function evaluation time = 0.043094
+
+[INFO] Precisión en test: 98.04%
+[INFO] Fin del proceso: 22-Jul-2025 11:07:49
+[INFO] Inicio del proceso: 22-Jul-2025 11:08:46
+[INFO] Número de muestras: 681
+[INFO] Número de clases: 4
+
+|======================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   |  MinLeafSize |
+|      | result |             | runtime     | (observed)  | (estim.)    |              |
+|======================================================================================|
+|    1 | Best   |    0.020964 |    0.098624 |    0.020964 |    0.020964 |           10 |
+|    2 | Accept |     0.42558 |    0.060516 |    0.020964 |    0.047939 |          118 |
+|    3 | Accept |    0.020964 |    0.070528 |    0.020964 |     0.06232 |           37 |
+|    4 | Accept |    0.020964 |    0.036319 |    0.020964 |    0.085653 |            2 |
+|    5 | Accept |    0.020964 |    0.043384 |    0.020964 |    0.020803 |           38 |
+|    6 | Accept |    0.023061 |    0.045139 |    0.020964 |    0.020678 |            4 |
+|    7 | Best   |    0.016771 |    0.035686 |    0.016771 |    0.016824 |            1 |
+|    8 | Accept |    0.020964 |    0.042018 |    0.016771 |    0.016785 |           21 |
+|    9 | Accept |    0.023061 |    0.038104 |    0.016771 |    0.016784 |            6 |
+|   10 | Accept |    0.020964 |    0.036624 |    0.016771 |    0.016777 |           29 |
+|   11 | Accept |    0.020964 |    0.038019 |    0.016771 |    0.016777 |           14 |
+|   12 | Accept |    0.018868 |     0.03646 |    0.016771 |    0.016784 |            3 |
+|   13 | Accept |    0.016771 |     0.04821 |    0.016771 |    0.016777 |            1 |
+|   14 | Accept |    0.016771 |    0.036122 |    0.016771 |    0.016775 |            1 |
+|   15 | Accept |    0.016771 |    0.045212 |    0.016771 |    0.016774 |            1 |
+|   16 | Accept |      0.6478 |    0.034163 |    0.016771 |    0.016779 |          238 |
+|   17 | Accept |    0.020964 |    0.048442 |    0.016771 |    0.016774 |           62 |
+|   18 | Accept |    0.020964 |    0.036977 |    0.016771 |    0.016774 |           51 |
+|   19 | Accept |    0.020964 |    0.041804 |    0.016771 |    0.016774 |            8 |
+|   20 | Accept |    0.020964 |    0.036423 |    0.016771 |    0.016774 |           17 |
+|======================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   |  MinLeafSize |
+|      | result |             | runtime     | (observed)  | (estim.)    |              |
+|======================================================================================|
+|   21 | Accept |    0.020964 |    0.036796 |    0.016771 |    0.016773 |           57 |
+|   22 | Accept |     0.22432 |    0.038649 |    0.016771 |    0.016773 |           83 |
+|   23 | Accept |    0.023061 |    0.046909 |    0.016771 |    0.016773 |            5 |
+|   24 | Accept |    0.020964 |    0.038054 |    0.016771 |    0.016773 |           12 |
+|   25 | Accept |    0.020964 |    0.041298 |    0.016771 |    0.016773 |           25 |
+|   26 | Accept |    0.020964 |    0.036397 |    0.016771 |    0.016773 |           44 |
+|   27 | Accept |    0.020964 |    0.041951 |    0.016771 |    0.016773 |            7 |
+|   28 | Accept |     0.44025 |    0.036712 |    0.016771 |    0.016773 |          171 |
+|   29 | Accept |    0.020964 |    0.036422 |    0.016771 |    0.016773 |           71 |
+|   30 | Accept |    0.020964 |    0.037894 |    0.016771 |    0.016773 |           67 |
+
+__________________________________________________________
+Optimization completed.
+MaxObjectiveEvaluations of 30 reached.
+Total function evaluations: 30
+Total elapsed time: 11.7096 seconds
+Total objective function evaluation time: 1.2999
+
+Best observed feasible point:
+    <strong>MinLeafSize</strong>
+    <strong>___________</strong>
+
+         1     
+
+Observed objective function value = 0.016771
+Estimated objective function value = 0.016773
+Function evaluation time = 0.035686
+
+Best estimated feasible point (according to models):
+    <strong>MinLeafSize</strong>
+    <strong>___________</strong>
+
+         1     
+
+Estimated objective function value = 0.016773
+Estimated function evaluation time = 0.042051
+
+[INFO] Precisión en test: 97.55%
+[INFO] Fin del proceso: 22-Jul-2025 11:09:01
