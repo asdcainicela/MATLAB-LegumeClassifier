@@ -76,7 +76,7 @@ function [img_etiquetada, resumen_clases, tabla_final] = analizar_legumbres(tabl
 
     % Guardar imagen si se pasó 'name'
     if ~isempty(name)
-        folder_out = fullfile('config', 'img');
+        folder_out = fullfile('results');
         if ~exist(folder_out, 'dir')
             mkdir(folder_out);
         end

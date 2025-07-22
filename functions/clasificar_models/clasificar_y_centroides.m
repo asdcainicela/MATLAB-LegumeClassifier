@@ -1,7 +1,18 @@
-function tabla_final = clasificar_y_centroides(tabla_datos, modelo)
+function tabla_final = clasificar_y_centroides(tabla_datos, modelo, ruta_caract)
+    % CLASIFICAR_Y_CENTROIDES: Clasifica y agrega la columna 'Clase'
+    % tabla_datos: tabla con características
+    % modelo: modelo de clasificación
+    % ruta_caract (opcional): ruta al archivo .mat con variable 'caracteristicas'
+
+    if nargin < 3 || isempty(ruta_caract)
+        ruta_caract = 'train/models/caracteristicas.mat';  % Ruta por defecto
+    end
+
+    % Cargar características
+    load(ruta_caract, 'caracteristicas');
+
     % Extraer los descriptores que usará el modelo
-    X = tabla_datos{:, {'Area', 'Eccentricity', 'Circularidad', ...
-                   'MeanR', 'MeanG', 'MeanB'}};
+    X = tabla_datos{:, caracteristicas};
 
     % Predecir clases
     clases = predict(modelo, X);

@@ -1,5 +1,5 @@
 function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = procesamiento_img(file_input, area_min, area_max, clase, circ_min, umbral)
-    
+
     if ~exist('circ_min', 'var') || isempty(circ_min)
         circ_min = 0.0;
     end
@@ -13,14 +13,16 @@ function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = proce
         x = file_input;
     end
 
-     % Calcular factor de escala basado en A5
+    % Calcular factores de escala basados en tamaño A5 (horizontal: 21 x 14.8 cm)
     [alto_img, ancho_img, ~] = size(x);
-    cm_ancho = 21.0; %14.8;  % Tamaño A5 horizontal
-    cm_alto  = 14.8;%21.0;  % Tamaño A5 vertical
-    factor_px_a_cm = mean([cm_ancho / ancho_img, cm_alto / alto_img]);
+    cm_ancho = 21.0;
+    cm_alto  = 14.8;
+    factor_px_a_cm_X = cm_ancho / ancho_img;
+    factor_px_a_cm_Y = cm_alto  / alto_img;
+    factor_area_cm2_por_px2 = factor_px_a_cm_X * factor_px_a_cm_Y;
 
-    fprintf('[INFO] Factor de escala estimado: %.4f cm/px\n', factor_px_a_cm);
-
+    fprintf('[INFO] Factores de escala: %.4f cm/px (X), %.4f cm/px (Y)\n', ...
+            factor_px_a_cm_X, factor_px_a_cm_Y);
 
     % Escala de grises
     x_grises = rgb2gray(x);
@@ -31,9 +33,9 @@ function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = proce
         x_bin = imbinarize(x_grises, umbral);
     else
         umbral_auto = graythresh(x_grises);
-        fprintf('[INFO] Umbral automático usado (graythresh): %.3f\n', umbral_auto);
-        %x_bin = imbinarize(x_grises, umbral_auto);
-        x_bin  = imbinarize(x_grises, 'adaptive', 'ForegroundPolarity', 'dark', 'Sensitivity', 0.5);
+        %fprintf('[INFO] Umbral automático usado (graythresh): %.3f\n', umbral_auto);
+        x_bin = imbinarize(x_grises, umbral_auto);
+        %x_bin = imbinarize(x_grises, 'adaptive', 'ForegroundPolarity', 'dark', 'Sensitivity', 0.5);
     end
 
     % Invertir y eliminar ruido pequeño
@@ -46,10 +48,8 @@ function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = proce
     todas_areas = [stats.Area];
 
     fprintf('\n[INFO] Áreas detectadas: %s\n', num2str(todas_areas));
-    indices_validos = find(todas_areas > area_min/(factor_px_a_cm*factor_px_a_cm) & todas_areas < area_max/(factor_px_a_cm*factor_px_a_cm));
-    disp(area_min/factor_px_a_cm)
-    disp(area_max/factor_px_a_cm)
-
+    indices_validos = find(todas_areas > area_min / factor_area_cm2_por_px2 & ...
+                           todas_areas < area_max / factor_area_cm2_por_px2);
     fprintf('[INFO] Regiones válidas por área: %d de %d\n', numel(indices_validos), numel(todas_areas));
 
     mascara_area = ismember(etiquetas, indices_validos);
@@ -81,8 +81,6 @@ function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = proce
     if tieneClase
         [temp.Clase] = deal(clase);
     end
-
-   
 
     fprintf('[INFO] === Análisis de regiones ===\n');
     for i = 1:N
@@ -119,16 +117,17 @@ function [datos, x, x_grises, x_bin, mascara_final, etiquetas_filtradas] = proce
         temp(idx).MeanG = mean(g_vals);  temp(idx).StdG = std(g_vals);
         temp(idx).MeanB = mean(b_vals);  temp(idx).StdB = std(b_vals);
 
-        % Escalado
-        temp(idx).Area_Scale = s.Area * factor_px_a_cm^2;
-        temp(idx).Perimeter_Scale = s.Perimeter * factor_px_a_cm;
-        temp(idx).MajorAxisLength_Scale = s.MajorAxisLength * factor_px_a_cm;
-        temp(idx).MinorAxisLength_Scale = s.MinorAxisLength * factor_px_a_cm;
-        temp(idx).CentroidX_Scale = s.Centroid(1) * factor_px_a_cm;
-        temp(idx).CentroidY_Scale = s.Centroid(2) * factor_px_a_cm;
+        % Escalado con factores separados
+        temp(idx).Area_Scale = s.Area * factor_area_cm2_por_px2;
+        temp(idx).Perimeter_Scale = s.Perimeter * mean([factor_px_a_cm_X, factor_px_a_cm_Y]);
+        temp(idx).MajorAxisLength_Scale = s.MajorAxisLength * factor_px_a_cm_X;
+        temp(idx).MinorAxisLength_Scale = s.MinorAxisLength * factor_px_a_cm_Y;
+        temp(idx).CentroidX_Scale = s.Centroid(1) * factor_px_a_cm_X;
+        temp(idx).CentroidY_Scale = s.Centroid(2) * factor_px_a_cm_Y;
         temp(idx).Circularidad_Scale = 4 * pi * temp(idx).Area_Scale / (temp(idx).Perimeter_Scale^2 + eps);
         temp(idx).Compacidad_Scale = (temp(idx).Perimeter_Scale^2) / (temp(idx).Area_Scale + eps);
-        temp(idx).BoundingBox_Scale = s.BoundingBox * factor_px_a_cm;
+        temp(idx).BoundingBox_Scale = s.BoundingBox .* [factor_px_a_cm_X, factor_px_a_cm_Y, ...
+                                                        factor_px_a_cm_X, factor_px_a_cm_Y];
     end
 
     fprintf('[INFO] Total objetos aceptados: %d\n', idx);
