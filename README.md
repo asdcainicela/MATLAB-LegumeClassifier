@@ -2,25 +2,53 @@
 
 Sistema de clasificación de legumbres mediante procesamiento de imágenes en MATLAB.
 
-## 📌 Descripción
+<p align="center">
+  <img src="ss/ScreeshotAppdesginer.png" alt="Preview" width="50%">
+</p>
 
-Este proyecto implementa una aplicación desarrollada en **MATLAB App Designer** para detectar, contar y clasificar cuatro tipos de legumbres:
+## Funcionalidades principales
+- Escalado automático en centímetros usando hoja A5 como referencia.
+- Procesamiento completo de imagen: binarización, filtrado morfológico, etiquetado y extracción de características.
+- Extracción de descriptores: área, perímetro, circularidad, media RGB, desviación estándar, etc.
+- Clasificación de legumbres mediante:
+    - Árbol de decisión (fitctree)
+    - Random Forest (TreeBagger)
+- Entrenamiento supervisado con exportación de modelos entrenados.
+- Interfaz visual (App Designer) para cargar, visualizar, entrenar y clasificar imágenes.
 
-- Garbanzo  
-- Frejol rojo  
-- Frejol canario  
-- Alverja verde partida
-
-La aplicación realiza:
-- Captura de imagen en tiempo real
-- Procesamiento por etapas (filtros, segmentación, morfología)
-- Extracción de características (color, forma, área, centroides)
-- Clasificación con **árboles de decisión** y **bosques aleatorios**
-- Visualización didáctica paso a paso
-
-## 🛠️ Tecnologías
-- MATLAB 2019 o superior
+## Requisitos
+ - MATLAB R2025a o superior
+ - Toolboxes:
+    - Image Processing Toolbox
+    - Statistics and Machine Learning Toolbox
 - App Designer
-- Clasificadores: `fitctree`, `TreeBagger`
+- Clasificadores: `fitctree`, `TreeBagger`    
 
 ## 📦 Estructura
+
+    MATLAB-LegumeClassifier/
+    ├── App.mlapp # Aplicación en App Designer
+    |── AppExport.m
+    ├── 📂 functions/            # Funciones de procesamiento y clasificación
+    │   ├── 📂clasificar_models/
+    │   │   ├── clasificar_legumbres.m
+    │   │   └── analizar_legumbres.m
+    │   ├── 📂procesamiento/
+    │   │   └── procesamiento_img.m
+    │   ├── 📂round-button/
+    │   │   ├── round_button.m
+    │   │   ├── round_button.html
+    │   │   └── test_button.m
+    │   ├── 📂uiaxes/
+    │   │   └── mostrarImagenExpandida.m
+    │   └── 📂utils/
+    │       └── save_datacsv.m
+    ├── 📂 data/                 # Imágenes de entrenamiento y prueba
+    ├── 📂 trains/models         # Modelos entrenados (.mat)
+    ├── 📂 results               
+    ├── 📂 media                 # Images para test y UIX
+    ├── 📂 utils/                # Funciones auxiliares
+    └── README.md
+
+##  Licencia 
+MIT License. Puedes usar, modificar y compartir este proyecto libremente.
